@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "594949448889",
+    "project_id": "kelineyt-e55c0",
+    "storage_bucket": "kelineyt-e55c0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:594949448889:android:11d09291fe9fe5bcd7e768",
+        "android_client_info": {
+          "package_name": "com.training.kelineyt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCS8JVyneD5hJGjWt5kg59UVJ9toQzCt5k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
