@@ -1,4 +1,4 @@
-package com.training.kelineyt.activities.fragments
+package com.training.kelineyt.activity.fragments
 
 import androidx.fragment.app.Fragment
 import com.training.kelineyt.R

@@ -5,6 +5,9 @@ plugins {
     id("kotlin-parcelize")
     id("androidx.navigation.safeargs.kotlin")
     id("dagger.hilt.android.plugin")
+    id("com.google.gms.google-services")
+
+
 
 }
 
@@ -38,6 +41,10 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+
+    buildFeatures{
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -69,7 +76,20 @@ dependencies {
     //Android Ktx
     implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
 
-    //Dagger hilt
-    implementation ("com.google.dagger:hilt-android:2.38.1")
-    kapt ("com.google.dagger:hilt-compiler:2.38.1")
+
+
+    // firebase
+    implementation("com.google.firebase:firebase-auth:22.3.1")
+
+
+
+   //Dagger hilt
+    val hiltVersion = "2.46.1"
+    val daggerVersion = "2.35.1"
+    implementation("com.google.dagger:hilt-android:$hiltVersion")
+    kapt("com.google.dagger:hilt-compiler:$hiltVersion")
+    implementation("com.google.dagger:dagger-android:$daggerVersion")
+
+
 }
+
