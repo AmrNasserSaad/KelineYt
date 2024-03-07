@@ -80,6 +80,11 @@ dependencies {
 
     // firebase
     implementation("com.google.firebase:firebase-auth:22.3.1")
+    implementation ("com.google.firebase:firebase-firestore:24.10.3")
+    implementation ("com.google.firebase:firebase-firestore-ktx:24.10.3")
+    implementation ("com.google.firebase:firebase-storage")
+    implementation ("com.google.firebase:firebase-storage-ktx:20.3.0")
+
 
 
 
