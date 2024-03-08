@@ -86,7 +86,7 @@
             app:layout_constraintTop_toBottomOf="@id/edFristName" />
 
         <EditText
-            android:id="@+id/ed_emailRegister"
+            android:id="@+id/ed_emailLogin"
             style="@style/editText"
             android:layout_width="0dp"
             android:layout_height="62dp"
@@ -107,7 +107,7 @@
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="@id/guidelineRightLogin"
             app:layout_constraintStart_toStartOf="@id/guidelineLeftLogin"
-            app:layout_constraintTop_toBottomOf="@id/ed_emailRegister" />
+            app:layout_constraintTop_toBottomOf="@id/ed_emailLogin" />
 
 
         <br.com.simplepass.loadingbutton.customViews.CircularProgressButton

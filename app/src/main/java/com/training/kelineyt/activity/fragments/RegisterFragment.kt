@@ -6,9 +6,12 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
+import com.training.kelineyt.R
 import com.training.kelineyt.activity.data.User
 import com.training.kelineyt.activity.util.RegisterValidation
 import com.training.kelineyt.activity.util.Resource
@@ -38,12 +41,16 @@ class RegisterFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.tvDontHaveAccountRegister.setOnClickListener {
+            findNavController().navigate(R.id.action_registerFragment_to_loginFragment2)
+        }
         binding.apply {
             buttonRegister.setOnClickListener {
                 val user = User(
                     edFristName.text.toString().trim(),
                     edLastName.text.toString().trim(),
-                    edEmailRegister.text.toString().trim()
+                    edEmailLogin.text.toString().trim()
                 )
                 val password = edPassword.text.toString()
                 viewModel.createAccountWithEmailAndPassword(user, password)
@@ -60,8 +67,9 @@ class RegisterFragment : Fragment() {
 
                     is Resource.Success -> {
                         Log.d("test",it.data.toString())
-
                         binding.buttonRegister.revertAnimation()
+                        Toast.makeText(requireContext(),"Register Successfully",Toast.LENGTH_SHORT).show()
+                        findNavController().navigate(R.id.action_registerFragment_to_loginFragment2)
 
                     }
 
@@ -80,7 +88,7 @@ class RegisterFragment : Fragment() {
             viewModel.validation.collect { validation->
                 if (validation.email is RegisterValidation.Failed){
                     withContext(Dispatchers.Main){
-                        binding.edEmailRegister.apply {
+                        binding.edEmailLogin.apply {
                             requestFocus()
                             error = validation.email.message
                         }
