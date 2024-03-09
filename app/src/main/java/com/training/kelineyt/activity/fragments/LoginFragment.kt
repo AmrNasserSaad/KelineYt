@@ -10,8 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.snackbar.Snackbar
 import com.training.kelineyt.R
 import com.training.kelineyt.activity.activities.ShoppingActivity
+import com.training.kelineyt.activity.dialog.setUpBottomSheetDialog
 import com.training.kelineyt.activity.util.Resource
 import com.training.kelineyt.activity.viewmodel.LoginViewModel
 import com.training.kelineyt.databinding.FragmentLoginBinding
@@ -43,6 +45,27 @@ class LoginFragment : Fragment(R.layout.fragment_login){
                 val email = edEmailLogin.text.toString().trim()
                 val password = edPassword.text.toString()
                 viewModel.login(email,password)
+            }
+        }
+
+        binding.tvForgotPasswordLogin.setOnClickListener {
+            setUpBottomSheetDialog {email ->
+                viewModel.resetPassword(email)
+            }
+        }
+
+        lifecycleScope.launchWhenStarted {
+            viewModel.resetPassword.collect{
+                when(it)
+                {
+                    is Resource.Success -> {
+                        Snackbar.make(requireView(),"Reset Link was sent to your Email",Snackbar.LENGTH_LONG).show()
+                    }
+                    is Resource.Error -> {
+                        Snackbar.make(requireView(),"Error : ${it.message}",Snackbar.LENGTH_LONG).show()
+                    }
+                    else -> Unit
+                }
             }
         }
 
