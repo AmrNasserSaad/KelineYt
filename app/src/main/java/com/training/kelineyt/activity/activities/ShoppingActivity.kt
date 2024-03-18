@@ -1,4 +1,4 @@
-package com.training.kelineyt.activities.activities
+package com.training.kelineyt.activity.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
