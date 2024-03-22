@@ -86,6 +86,11 @@ dependencies {
     implementation ("com.google.firebase:firebase-storage-ktx:20.3.0")
 
 
+//Navigation component
+    val nav_version = "2.5.2"
+    implementation ("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation ("androidx.navigation:navigation-ui-ktx:$nav_version")
+
 
 
    //Dagger hilt

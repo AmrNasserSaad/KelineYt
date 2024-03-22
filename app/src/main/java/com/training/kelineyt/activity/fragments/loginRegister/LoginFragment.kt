@@ -1,4 +1,4 @@
-package com.training.kelineyt.activity.fragments
+package com.training.kelineyt.activity.fragments.loginRegister
 
 import android.content.Intent
 import android.os.Bundle
@@ -20,10 +20,10 @@ import com.training.kelineyt.databinding.FragmentLoginBinding
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : Fragment(R.layout.fragment_login){
+class LoginFragment : Fragment(R.layout.fragment_login) {
 
-    private lateinit var  binding : FragmentLoginBinding
-    private val viewModel by viewModels<LoginViewModel >()
+    private lateinit var binding: FragmentLoginBinding
+    private val viewModel by viewModels<LoginViewModel>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -44,52 +44,60 @@ class LoginFragment : Fragment(R.layout.fragment_login){
             buttonLogin.setOnClickListener {
                 val email = edEmailLogin.text.toString().trim()
                 val password = edPassword.text.toString()
-                viewModel.login(email,password)
+                viewModel.login(email, password)
             }
         }
 
         binding.tvForgotPasswordLogin.setOnClickListener {
-            setUpBottomSheetDialog {email ->
+            setUpBottomSheetDialog { email ->
                 viewModel.resetPassword(email)
             }
         }
 
         lifecycleScope.launchWhenStarted {
-            viewModel.resetPassword.collect{
-                when(it)
-                {
+            viewModel.resetPassword.collect {
+                when (it) {
                     is Resource.Success -> {
-                        Snackbar.make(requireView(),"Reset Link was sent to your Email",Snackbar.LENGTH_LONG).show()
+                        Snackbar.make(
+                            requireView(),
+                            "Reset Link was sent to your Email",
+                            Snackbar.LENGTH_LONG
+                        ).show()
                     }
+
                     is Resource.Error -> {
-                        Snackbar.make(requireView(),"Error : ${it.message}",Snackbar.LENGTH_LONG).show()
+                        Snackbar.make(requireView(), "Error : ${it.message}", Snackbar.LENGTH_LONG)
+                            .show()
                     }
+
                     else -> Unit
                 }
             }
         }
 
         lifecycleScope.launchWhenStarted {
-            viewModel.login.collect{
-                when(it)
-                {
+            viewModel.login.collect {
+                when (it) {
                     is Resource.Loading -> {
 
                         binding.buttonLogin.startAnimation()
 
                     }
+
                     is Resource.Success -> {
                         binding.buttonLogin.revertAnimation()
-                        Intent(requireActivity(),ShoppingActivity::class.java).also { intent ->
+                        Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                         }
                     }
+
                     is Resource.Error -> {
-                        Toast.makeText(requireContext(),it.message,Toast.LENGTH_LONG).show()
+                        Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                         binding.buttonLogin.revertAnimation()
 
                     }
+
                     else -> Unit
                 }
             }

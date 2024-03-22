@@ -1,4 +1,4 @@
-package com.training.kelineyt.activity.fragments
+package com.training.kelineyt.activity.fragments.loginRegister
 
 
 import android.content.Intent
@@ -41,16 +41,16 @@ class IntroductionFragment : Fragment(R.layout.fragment_introduction) {
         super.onViewCreated(view, savedInstanceState)
 
         lifecycleScope.launch {
-            viewModel.navigate.collect{
-                when(it){
-                    SHOPPING_ACTIVITY->{
+            viewModel.navigate.collect {
+                when (it) {
+                    SHOPPING_ACTIVITY -> {
                         Intent(requireActivity(), ShoppingActivity::class.java).also { intent ->
                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                             startActivity(intent)
                         }
                     }
 
-                    ACCOUNT_OPTIONS_FRAGMENT->{
+                    ACCOUNT_OPTIONS_FRAGMENT -> {
                         findNavController().navigate(it)
 
                     }
