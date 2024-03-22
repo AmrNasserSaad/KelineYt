@@ -18,14 +18,14 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun ProvideFirebaseAuth()= FirebaseAuth.getInstance()
+    fun ProvideFirebaseAuth() = FirebaseAuth.getInstance()
 
 
     @Provides
     @Singleton
-    fun ProvideFirebaseFirestoreDatabase()= Firebase.firestore
+    fun ProvideFirebaseFirestoreDatabase() = Firebase.firestore
 
     @Provides
-    fun ProvideIntroductionSP(application: Application)
-    = application.getSharedPreferences(INTRODUTION_SP,MODE_PRIVATE)
+    fun ProvideIntroductionSP(application: Application) =
+        application.getSharedPreferences(INTRODUTION_SP, MODE_PRIVATE)
 }

@@ -1,4 +1,4 @@
-package com.training.kelineyt.activity.fragments
+package com.training.kelineyt.activity.fragments.loginRegister
 
 import android.os.Bundle
 import android.view.LayoutInflater
