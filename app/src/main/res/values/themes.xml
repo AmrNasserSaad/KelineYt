@@ -6,10 +6,15 @@
 
     </style>
 
-    <style name="Theme.KelineYt" parent="Base.Theme.KelineYt" >
+    <style name="Theme.KelineYt" parent="Base.Theme.KelineYt">
         <item name="colorOnPrimary">@color/white</item>
 
         <item name="android:statusBarColor" tools:targetApi="l">@color/white</item>
         <item name="android:windowLightStatusBar">true</item>
+
+
+
     </style>
+
+
 </resources>
