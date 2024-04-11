@@ -30,7 +30,8 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
                 if (product.offerPercentage == null )
                     tvNewPrice.visibility = View.INVISIBLE
 
-                    tvPrice.text = "$ ${product.price}"
+
+                tvPrice.text = "$ ${product.price}"
             }
         }
 
