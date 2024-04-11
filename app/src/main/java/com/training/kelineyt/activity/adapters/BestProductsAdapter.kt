@@ -27,8 +27,7 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
                     tvPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                 }
 
-                if (product.offerPercentage == null )
-                    tvNewPrice.visibility = View.INVISIBLE
+                if (product.offerPercentage == null ) tvNewPrice.visibility = View.INVISIBLE
 
 
                 tvPrice.text = "$ ${product.price}"
