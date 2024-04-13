@@ -15,8 +15,8 @@ open class BaseCategoryFragment : Fragment(R.layout.fragment_base_category) {
 
     private lateinit var binding: FragmentBaseCategoryBinding
 
-    private lateinit var offerAdapter: BestProductsAdapter
-    private lateinit var bestProductsAdapter: BestProductsAdapter
+    protected val offerAdapter: BestProductsAdapter by lazy { BestProductsAdapter() }
+    protected val bestProductsAdapter: BestProductsAdapter by lazy { BestProductsAdapter() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,7 +37,7 @@ open class BaseCategoryFragment : Fragment(R.layout.fragment_base_category) {
     }
 
     private fun setupBestProductsRV() {
-        bestProductsAdapter = BestProductsAdapter()
+
         binding.rvBestProducts.apply {
             layoutManager =
                 GridLayoutManager(requireContext(), 2, GridLayoutManager.VERTICAL, false)
@@ -46,12 +46,22 @@ open class BaseCategoryFragment : Fragment(R.layout.fragment_base_category) {
     }
 
     private fun setupOfferRV() {
-        offerAdapter = BestProductsAdapter()
-        binding.rvBestProducts.apply {
+
+        binding.rvOffer.apply {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
             adapter = offerAdapter
         }
+    }
+
+    fun showLoading() {
+        binding.offerProgressBar.visibility = View.VISIBLE
+        binding.bestProductsProgressBar.visibility = View.VISIBLE
+    }
+
+    fun hideLoading() {
+        binding.offerProgressBar.visibility = View.GONE
+        binding.bestProductsProgressBar.visibility = View.GONE
     }
 
 }
