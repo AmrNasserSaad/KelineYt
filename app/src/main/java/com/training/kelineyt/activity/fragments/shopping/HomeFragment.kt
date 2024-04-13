@@ -55,8 +55,8 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
                 0 -> tab.text = "Main"
                 1 -> tab.text = "Chair"
                 2 -> tab.text = "Cupboard"
-                3 -> tab.text = "Table"
-                4 -> tab.text = "Accessory"
+                3 -> tab.text = "Accessory"
+                4 -> tab.text = "Table"
                 5 -> tab.text = "Furniture"
             }
 
