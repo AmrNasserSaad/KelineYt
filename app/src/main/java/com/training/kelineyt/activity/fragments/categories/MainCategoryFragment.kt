@@ -10,6 +10,7 @@ import androidx.core.widget.NestedScrollView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.training.kelineyt.R
@@ -17,6 +18,7 @@ import com.training.kelineyt.activity.adapters.BestDealsAdapter
 import com.training.kelineyt.activity.adapters.BestProductsAdapter
 import com.training.kelineyt.activity.adapters.SpecialProductsAdapter
 import com.training.kelineyt.activity.util.Resource
+import com.training.kelineyt.activity.util.showBottomNavigationView
 import com.training.kelineyt.activity.viewmodel.MainCategoryViewModel
 import com.training.kelineyt.databinding.FragmentMainCategoryBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -125,6 +127,22 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         }
 
         increaseItemsWhenIScrollToDown()
+
+        specialProductsAdapter.onClick = {
+            val bundle = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,bundle)
+        }
+
+        bestDealsAdapter.onClick = {
+            val bundle = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,bundle)
+        }
+
+        bestProductsAdapter.onClick = {
+            val bundle = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,bundle)
+        }
+
     }
 
     private fun increaseItemsWhenIScrollToDown() {
@@ -172,5 +190,9 @@ class MainCategoryFragment : Fragment(R.layout.fragment_main_category) {
         binding.progressBar.visibility = View.GONE
     }
 
+    override fun onResume() {
+        super.onResume()
+        showBottomNavigationView()
+    }
 
 }

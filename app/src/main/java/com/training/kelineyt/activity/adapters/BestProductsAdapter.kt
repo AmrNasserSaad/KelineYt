@@ -18,7 +18,7 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
         fun bind(product: Product) {
             binding.apply {
                 Glide.with(itemView).load(product.images[0]).into(imgProduct)
-                    tvName.text = product.name
+                tvName.text = product.name
 
                 product.offerPercentage?.let {
                     val remainingPricePercentage = 1f - it
@@ -27,7 +27,7 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
                     tvPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                 }
 
-                if (product.offerPercentage == null ) tvNewPrice.visibility = View.INVISIBLE
+                if (product.offerPercentage == null) tvNewPrice.visibility = View.INVISIBLE
 
 
                 tvPrice.text = "$ ${product.price}"
@@ -52,19 +52,24 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
     // differ
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BestProductsViewHolder {
-       return BestProductsViewHolder(
+        return BestProductsViewHolder(
             ProductRvItemBinding.inflate(
                 LayoutInflater.from(parent.context)
             )
-       )
+        )
     }
 
     override fun onBindViewHolder(holder: BestProductsViewHolder, position: Int) {
         val product = differ.currentList[position]
         holder.bind(product)
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(product)
+        }
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
+
+     var onClick: ((Product) -> Unit)? = null
 }
