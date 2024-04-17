@@ -14,7 +14,8 @@ data class Product(
     val colors: List<Int>? = null,
     val sizes: List<String>? = null,
     val images: List<String>
-): Parcelable{
-    constructor():this("0","","",0f,images= emptyList())
+) : Parcelable {
+    constructor() : this("0", "", "", 0f, images = emptyList())
+
 }
 
