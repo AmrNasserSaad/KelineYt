@@ -5,10 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.training.kelineyt.R
 import com.training.kelineyt.activity.adapters.BestProductsAdapter
+import com.training.kelineyt.activity.util.showBottomNavigationView
 import com.training.kelineyt.databinding.FragmentBaseCategoryBinding
 
 open class BaseCategoryFragment : Fragment(R.layout.fragment_base_category) {
@@ -33,6 +35,16 @@ open class BaseCategoryFragment : Fragment(R.layout.fragment_base_category) {
 
         setupOfferRV()
         setupBestProductsRV()
+
+        bestProductsAdapter.onClick = {
+            val bundle = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,bundle)
+        }
+
+        offerAdapter.onClick = {
+            val bundle = Bundle().apply { putParcelable("product", it) }
+            findNavController().navigate(R.id.action_homeFragment_to_productDetailsFragment,bundle)
+        }
 
     }
 
@@ -62,6 +74,11 @@ open class BaseCategoryFragment : Fragment(R.layout.fragment_base_category) {
     fun hideLoading() {
         binding.offerProgressBar.visibility = View.GONE
         binding.bestProductsProgressBar.visibility = View.GONE
+    }
+
+    override fun onResume() {
+        super.onResume()
+        showBottomNavigationView()
     }
 
 }

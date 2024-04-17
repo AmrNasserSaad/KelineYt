@@ -27,7 +27,7 @@ class BestDealsAdapter : RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHold
                     tvNewPrice.text = "$ ${String.format("%.2f", priceAfterOffer)}"
                     tvOldPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
                 }
-                if (product.offerPercentage == null )
+                if (product.offerPercentage == null)
                     tvNewPrice.visibility = View.INVISIBLE
 
                 tvOldPrice.text = "$ ${product.price}"
@@ -64,10 +64,14 @@ class BestDealsAdapter : RecyclerView.Adapter<BestDealsAdapter.BestDealsViewHold
     override fun onBindViewHolder(holder: BestDealsViewHolder, position: Int) {
         val product = differ.currentList[position]
         holder.bind(product)
+        holder.itemView.setOnClickListener {
+            onClick?.invoke(product)
+        }
     }
 
     override fun getItemCount(): Int {
         return differ.currentList.size
     }
 
+     var onClick: ((Product) -> Unit)? = null
 }
