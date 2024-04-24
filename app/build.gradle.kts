@@ -8,7 +8,6 @@ plugins {
     id("com.google.gms.google-services")
 
 
-
 }
 
 android {
@@ -42,7 +41,7 @@ android {
         jvmTarget = "1.8"
     }
 
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
     }
 }
@@ -59,41 +58,39 @@ dependencies {
 
 
     //loading button
-    implementation ("br.com.simplepass:loading-button-android:2.2.0")
+    implementation("br.com.simplepass:loading-button-android:2.2.0")
 
     //Glide
-    implementation ("com.github.bumptech.glide:glide:4.13.0")
+    implementation("com.github.bumptech.glide:glide:4.13.0")
 
     //circular image
-    implementation ("de.hdodenhof:circleimageview:3.1.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
 
     //viewpager2 indicator
-    implementation ("io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1")
+    implementation("io.github.vejei.viewpagerindicator:viewpagerindicator:1.0.0-alpha.1")
 
     //stepView
-    implementation ("com.shuhart.stepview:stepview:1.5.1")
+    implementation("com.shuhart.stepview:stepview:1.5.1")
 
     //Android Ktx
-    implementation ("androidx.navigation:navigation-fragment-ktx:2.7.7")
-
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
 
 
     // firebase
     implementation("com.google.firebase:firebase-auth:22.3.1")
-    implementation ("com.google.firebase:firebase-firestore:24.10.3")
-    implementation ("com.google.firebase:firebase-firestore-ktx:24.10.3")
-    implementation ("com.google.firebase:firebase-storage")
-    implementation ("com.google.firebase:firebase-storage-ktx:20.3.0")
+    implementation("com.google.firebase:firebase-firestore:24.10.3")
+    implementation("com.google.firebase:firebase-firestore-ktx:24.10.3")
+    implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-storage-ktx:20.3.0")
 
 
-//Navigation component
+    //Navigation component
     val nav_version = "2.5.2"
-    implementation ("androidx.navigation:navigation-fragment-ktx:$nav_version")
-    implementation ("androidx.navigation:navigation-ui-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 
 
-
-   //Dagger hilt
+    //Dagger hilt
     val hiltVersion = "2.46.1"
     val daggerVersion = "2.35.1"
     implementation("com.google.dagger:hilt-android:$hiltVersion")

@@ -80,6 +80,6 @@ class SizesAdapter : RecyclerView.Adapter<SizesAdapter.SizesViewHolder>() {
     }
 
 
-    private var onItemClick: ((String) -> Unit)? = null
+     var onItemClick: ((String) -> Unit)? = null
 
 }
