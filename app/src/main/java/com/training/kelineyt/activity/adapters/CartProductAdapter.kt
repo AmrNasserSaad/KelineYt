@@ -25,7 +25,7 @@ class CartProductAdapter : RecyclerView.Adapter<CartProductAdapter.CartProductsV
                     cartProduct.product.offerPercentage.getProductPrice(cartProduct.product.price)
                 tvProductCartPrice.text = "$ ${String.format("%.2f", priceAfterOffer)}"
 
-                imageCartProduct.setImageDrawable(
+                imageCartProductColor.setImageDrawable(
                     ColorDrawable(
                         cartProduct.selectedColor ?: android.graphics.Color.TRANSPARENT
                     )
