@@ -33,9 +33,7 @@ class CartProductAdapter : RecyclerView.Adapter<CartProductAdapter.CartProductsV
                 tvCartProductSize.text = cartProduct.selectedSize ?: "".also {
                     imageCartProductSize.setImageDrawable(ColorDrawable(android.graphics.Color.TRANSPARENT))
                 }
-
             }
-
         }
     }
 

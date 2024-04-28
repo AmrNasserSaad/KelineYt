@@ -45,9 +45,13 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
         setupCartRV()
 
+        var totalPrice = 0f
+
+
         lifecycleScope.launchWhenStarted {
             viewModel.productsPrice.collectLatest { price ->
                 price?.let {
+                    totalPrice = it
                     binding.tvTotalPrice.text = "$ $price"
                 }
             }
@@ -66,6 +70,15 @@ class CartFragment : Fragment(R.layout.fragment_cart) {
 
         binding.imageCloseCart.setOnClickListener {
             findNavController().navigateUp()
+        }
+     //send args
+        binding.buttonCheckout.setOnClickListener {
+
+            val action = CartFragmentDirections.actionCartFragmentToBillingFragment(
+                totalPrice,
+                cartAdapter.differ.currentList.toTypedArray()
+            )
+            findNavController().navigate(action)
         }
 
         lifecycleScope.launchWhenStarted {
