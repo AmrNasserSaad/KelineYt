@@ -67,6 +67,9 @@ class AddressFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
+        binding.imageAddressClose.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
         binding.apply {
             buttonSave.setOnClickListener {
