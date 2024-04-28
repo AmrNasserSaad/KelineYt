@@ -73,4 +73,9 @@
             android:name="products"
             app:argType="com.training.kelineyt.activity.data.CartProduct[]" />
     </fragment>
+    <fragment
+        android:id="@+id/userAccountFragment"
+        android:name="com.training.kelineyt.activity.fragments.settings.UserAccountFragment"
+        android:label="UserAccountFragment"
+        tools:layout="@layout/fragment_user_account"/>
 </navigation>
