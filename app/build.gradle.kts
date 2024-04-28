@@ -97,6 +97,8 @@ dependencies {
     kapt("com.google.dagger:hilt-compiler:$hiltVersion")
     implementation("com.google.dagger:dagger-android:$daggerVersion")
 
+    // Coroutines with firebase
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.3")
 
 }
 
