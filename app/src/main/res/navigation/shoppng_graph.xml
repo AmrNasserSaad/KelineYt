@@ -80,8 +80,21 @@
         tools:layout="@layout/fragment_user_account"/>
     <fragment
         android:id="@+id/allOrdersFragment"
-        android:name="com.training.kelineyt.activity.fragments.settings.OrdersFragment"
+        android:name="com.training.kelineyt.activity.fragments.settings.AllOrdersFragment"
         android:label="OrdersFragment"
         tools:layout="@layout/fragment_orders"
-        />
+        >
+        <action
+            android:id="@+id/action_allOrdersFragment_to_orderDetailsFragment"
+            app:destination="@id/orderDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderDetailsFragment"
+        android:name="com.training.kelineyt.activity.fragments.settings.OrderDetailsFragment"
+        android:label="OrderDetailsFragment"
+        tools:layout="@layout/fragment_order_detail">
+        <argument
+            android:name="order"
+            app:argType="com.training.kelineyt.activity.data.Order" />
+    </fragment>
 </navigation>

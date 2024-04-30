@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.training.kelineyt.activity.adapters.AllOrdersAdapter
@@ -17,7 +18,7 @@ import com.training.kelineyt.databinding.FragmentOrdersBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 @AndroidEntryPoint
-class OrdersFragment : Fragment() {
+class AllOrdersFragment : Fragment() {
     private lateinit var binding: FragmentOrdersBinding
     val viewModel by viewModels<AllOrdersViewModel>()
     private val allOrdersAdapter by lazy { AllOrdersAdapter() }
@@ -65,6 +66,11 @@ class OrdersFragment : Fragment() {
                     else -> Unit
                 }
             }
+        }
+
+        allOrdersAdapter.onClick = {
+            val action = AllOrdersFragmentDirections.actionAllOrdersFragmentToOrderDetailsFragment(it)
+            findNavController().navigate(action)
         }
     }
 

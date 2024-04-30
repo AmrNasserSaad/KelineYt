@@ -128,7 +128,7 @@ class BillingFragment : Fragment() {
         binding.buttonPlaceOrder.setOnClickListener {
 
             if (selectedAddress == null) {
-                Toast.makeText(requireContext(), "Plase Select Any Address", Toast.LENGTH_SHORT)
+                Toast.makeText(requireContext(), "Please Select Any Address", Toast.LENGTH_SHORT)
                     .show()
                 return@setOnClickListener
             }
