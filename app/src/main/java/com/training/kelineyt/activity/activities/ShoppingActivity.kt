@@ -26,6 +26,7 @@ class ShoppingActivity : AppCompatActivity() {
         val navController = findNavController(R.id.soppingHostFragment)
         binding.bottomNavigation.setupWithNavController(navController)
 
+
         countNumberOfTheBadge()
 
 
