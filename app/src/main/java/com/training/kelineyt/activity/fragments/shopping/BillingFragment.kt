@@ -118,6 +118,9 @@ class BillingFragment : Fragment() {
         }
 
 
+        binding.imageCloseBilling.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
         billingProductsAdapter.differ.submitList(products)
         binding.tvTotalPrice.text = "$ $totalPrice"
