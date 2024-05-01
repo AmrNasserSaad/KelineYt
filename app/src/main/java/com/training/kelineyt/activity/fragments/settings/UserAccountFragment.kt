@@ -99,6 +99,9 @@ class UserAccountFragment : Fragment() {
         // reset password tv
         binding.tvUpdatePassword.setOnClickListener { setUpBottomSheetDialog {}}
 
+        binding.imageCloseUserAccount.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
         binding.buttonSave.setOnClickListener {
             binding.apply {

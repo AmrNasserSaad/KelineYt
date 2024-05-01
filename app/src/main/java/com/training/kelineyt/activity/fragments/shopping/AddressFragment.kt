@@ -9,17 +9,21 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.training.kelineyt.activity.data.Address
 import com.training.kelineyt.activity.util.Resource
 import com.training.kelineyt.activity.viewmodel.AddressViewModel
 import com.training.kelineyt.databinding.FargmentAddressBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+
 @AndroidEntryPoint
 class AddressFragment : Fragment() {
 
     private lateinit var binding: FargmentAddressBinding
     val viewModel by viewModels<AddressViewModel>()
+    val args by navArgs<AddressFragmentArgs>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -66,6 +70,8 @@ class AddressFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        saveArgs()
+
 
         binding.imageAddressClose.setOnClickListener {
             findNavController().navigateUp()
@@ -84,6 +90,24 @@ class AddressFragment : Fragment() {
                 viewModel.addAddress(address)
 
             }
+        }
+    }
+
+    private fun saveArgs() {
+        val address = args.address
+
+        if (address == null) {
+            binding.buttonDelete.visibility = View.GONE
+        } else {
+            binding.apply {
+                edAddressTitle.setText(address.addressTitle)
+                edFullName.setText(address.fullName)
+                edState.setText(address.state)
+                edPhone.setText(address.phone)
+                edCity.setText(address.city)
+                edStreet.setText(address.street)
+            }
+
         }
     }
 
