@@ -18,7 +18,7 @@ class BestProductsAdapter : RecyclerView.Adapter<BestProductsAdapter.BestProduct
         RecyclerView.ViewHolder(binding.root) {
         fun bind(product: Product) {
             binding.apply {
-                Glide.with(itemView).load(product.images[0]).into(imgProduct)
+                Glide.with(itemView).load(product.images[0]).into(imgProductTable)
                 tvName.text = product.name
 
                 val priceAfterOffer = product.offerPercentage.getProductPrice(product.price)
