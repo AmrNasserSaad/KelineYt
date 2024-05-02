@@ -377,7 +377,7 @@
                         android:layout_gravity="center_vertical"
                         android:layout_marginStart="15dp"
                         android:layout_weight="1"
-                        android:text="Logout"
+                        android:text="@string/logout"
                         android:textColor="@color/g_gray700"
                         android:textStyle="bold" />
 
