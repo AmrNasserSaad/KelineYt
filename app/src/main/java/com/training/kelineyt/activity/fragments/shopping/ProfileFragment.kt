@@ -3,7 +3,6 @@ package com.training.kelineyt.activity.fragments.shopping
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.os.Build.VERSION_CODES
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -23,6 +22,7 @@ import com.training.kelineyt.activity.viewmodel.ProfileViewModel
 import com.training.kelineyt.databinding.FragmentProfileBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+
 @AndroidEntryPoint
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
@@ -68,7 +68,6 @@ class ProfileFragment : Fragment() {
 
         }
 
-
     }
 
     override fun onResume() {
@@ -89,7 +88,11 @@ class ProfileFragment : Fragment() {
         binding.linearBilling.setOnClickListener {
 
             val action =
-                ProfileFragmentDirections.actionProfileFragmentToBillingFragment(0f, emptyArray(),false)
+                ProfileFragmentDirections.actionProfileFragmentToBillingFragment(
+                    0f,
+                    emptyArray(),
+                    false
+                )
             findNavController().navigate(action)
         }
         binding.linearLogOut.setOnClickListener {
@@ -127,4 +130,6 @@ class ProfileFragment : Fragment() {
         val alertDialog = alertDialogBuilder.create()
         alertDialog.show()
     }
+
+
 }
