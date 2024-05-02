@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -92,12 +93,38 @@ class ProfileFragment : Fragment() {
             findNavController().navigate(action)
         }
         binding.linearLogOut.setOnClickListener {
+
+            showAlertDialog()
+
+
+        }
+
+        binding.linearLanguage.setOnClickListener {
+
+            findNavController().navigate(R.id.action_profileFragment_to_languageFragment)
+        }
+
+
+    }
+
+    private fun showAlertDialog() {
+        val alertDialogBuilder = AlertDialog.Builder(requireContext())
+
+        alertDialogBuilder.setMessage("Do you want to Sign Out ")
+        alertDialogBuilder.setPositiveButton("OK") { dialog, _ ->
+            // Code to be executed when the positive button is clicked
             viewModel.logout()
             val intent = Intent(requireActivity(), LoginRegisterActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
+            dialog.dismiss()
+        }
+        alertDialogBuilder.setNegativeButton("Cancel") { dialog, _ ->
+            // Code to be executed when the negative button is clicked
+            dialog.dismiss()
         }
 
-
+        val alertDialog = alertDialogBuilder.create()
+        alertDialog.show()
     }
 }
