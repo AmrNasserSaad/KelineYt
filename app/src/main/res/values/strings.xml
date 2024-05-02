@@ -10,4 +10,5 @@
     <string name="categories">Categories</string>
     <string name="best_deals">Best Deals</string>
     <string name="best_products">Best Products</string>
+    <string name="logout">Logout</string>
 </resources>

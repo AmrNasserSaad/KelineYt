@@ -11,4 +11,6 @@
     <string name="categories">كل الفئات </string>
     <string name="best_deals">أفضل العروض</string>
     <string name="best_products">أفضل المنتجات</string>
+    <string name="logout">تسجبل خروج</string>
+
 </resources>
