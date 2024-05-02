@@ -165,6 +165,7 @@
         app:cardElevation="0dp"
         android:layout_marginTop="4dp"
         android:layout_marginStart="8dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintStart_toEndOf="@id/card_chair"
         app:layout_constraintTop_toBottomOf="@+id/categories_tv"
         app:cardUseCompatPadding="true">
@@ -290,6 +291,7 @@
         app:cardBackgroundColor="@color/g_card_background"
         app:cardCornerRadius="2dp"
         app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="@id/card_cupboard"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@id/card_cupboard"
         app:layout_constraintTop_toBottomOf="@+id/card_cupboard"
@@ -408,6 +410,20 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.04136253" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.96" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
