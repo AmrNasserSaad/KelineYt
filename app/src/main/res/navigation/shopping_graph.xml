@@ -46,6 +46,9 @@
         <action
             android:id="@+id/action_profileFragment_to_billingFragment"
             app:destination="@id/billingFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_languageFragment"
+            app:destination="@id/languageFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -55,6 +58,21 @@
         <action
             android:id="@+id/action_searchFragment_to_productDetailsFragment"
             app:destination="@id/productDetailsFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_tableFragment"
+            app:destination="@id/tableFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_chairFragment"
+            app:destination="@id/chairFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_accessoryFragment"
+            app:destination="@id/accessoryFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_furnitureFragment"
+            app:destination="@id/furnitureFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_cupboardFragment"
+            app:destination="@id/cupboardFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
@@ -118,4 +136,29 @@
             android:name="order"
             app:argType="com.training.kelineyt.activity.data.Order" />
     </fragment>
+    <fragment
+        android:id="@+id/languageFragment"
+        android:name="com.training.kelineyt.activity.fragments.settings.LanguageFragment"
+        android:label="LanguageFragment"
+        tools:layout="@layout/fragment_language"/>
+    <fragment
+        android:id="@+id/tableFragment"
+        android:name="com.training.kelineyt.activity.fragments.categories.TableFragment"
+        android:label="TableFragment" />
+    <fragment
+        android:id="@+id/chairFragment"
+        android:name="com.training.kelineyt.activity.fragments.categories.ChairFragment"
+        android:label="ChairFragment" />
+    <fragment
+        android:id="@+id/accessoryFragment"
+        android:name="com.training.kelineyt.activity.fragments.categories.AccessoryFragment"
+        android:label="AccessoryFragment" />
+    <fragment
+        android:id="@+id/furnitureFragment"
+        android:name="com.training.kelineyt.activity.fragments.categories.FurnitureFragment"
+        android:label="FurnitureFragment" />
+    <fragment
+        android:id="@+id/cupboardFragment"
+        android:name="com.training.kelineyt.activity.fragments.categories.CupboardFragment"
+        android:label="CupboardFragment" />
 </navigation>

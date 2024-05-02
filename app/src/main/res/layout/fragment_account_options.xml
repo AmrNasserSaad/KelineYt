@@ -61,7 +61,7 @@
             style="@style/blueButtonStyle"
             android:layout_width="0dp"
             android:layout_height="52dp"
-            android:text="@string/reigster"
+            android:text="@string/Reigster"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@id/tvQuality"
             app:layout_constraintStart_toStartOf="@id/tvQuality"
