@@ -12,29 +12,28 @@ import com.training.kelineyt.activity.data.Product
 import com.training.kelineyt.activity.helper.getProductPrice
 import com.training.kelineyt.databinding.ProductRvItemBinding
 
- class SearchAdapter  : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
+ class SearchAdapter(var items : List<Product> )  : RecyclerView.Adapter<SearchAdapter.SearchViewHolder>() {
 
     inner class SearchViewHolder(private val binding: ProductRvItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
+
         fun bind(product: Product) {
             binding.apply {
                 Glide.with(itemView).load(product.images[0]).into(imgProductTable)
                 tvName.text = product.name
-
                 val priceAfterOffer = product.offerPercentage.getProductPrice(product.price)
                 tvNewPrice.text = "$ ${String.format("%.2f", priceAfterOffer)}"
                 tvPrice.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG
-
-
                 if (product.offerPercentage == null)
                     tvNewPrice.visibility = View.INVISIBLE
-
 
                 tvPrice.text = "$ ${product.price}"
             }
         }
 
     }
+
 
     // differ
     private val diffCalBack = object : DiffUtil.ItemCallback<Product>() {
@@ -60,16 +59,26 @@ import com.training.kelineyt.databinding.ProductRvItemBinding
     }
 
     override fun onBindViewHolder(holder: SearchViewHolder, position: Int) {
-        val product = differ.currentList[position]
-        holder.bind(product)
-        holder.itemView.setOnClickListener {
-            onClick?.invoke(product)
+        if (items.isNotEmpty()){
+            val product = items[position]
+            holder.bind(product)
+            holder.itemView.setOnClickListener {
+                onClick?.invoke(product)
+            }
         }
+
     }
 
     override fun getItemCount(): Int {
-        return differ.currentList.size
+        return items.size
     }
 
     var onClick: ((Product) -> Unit)? = null
+
+     fun addNewListItems(newList : List<Product>  ){
+
+
+         items = newList
+
+     }
 }
