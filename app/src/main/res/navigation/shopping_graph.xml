@@ -73,6 +73,9 @@
         <action
             android:id="@+id/action_searchFragment_to_cupboardFragment"
             app:destination="@id/cupboardFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_productDetailsFragment2"
+            app:destination="@id/productDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
