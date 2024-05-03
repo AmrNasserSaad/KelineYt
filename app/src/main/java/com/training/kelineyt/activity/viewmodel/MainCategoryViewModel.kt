@@ -60,24 +60,24 @@ class MainCategoryViewModel @Inject constructor(private val firestore: FirebaseF
     fun fetchBestDeals() {
         viewModelScope.launch {
             _bestDeals.emit(Resource.Loading())
-
-
-            firestore
-                .collection("Products")
-                .whereEqualTo("category", "Best Deals")
-                .get()
-                .addOnSuccessListener { result ->
-                    val bestDealsList = result.toObjects(Product::class.java)
-                    viewModelScope.launch {
-                        _bestDeals.emit(Resource.Success(bestDealsList))
-                    }
-                }
-                .addOnFailureListener {
-                    viewModelScope.launch {
-                        _bestDeals.emit(Resource.Error(it.message.toString()))
-                    }
-                }
         }
+
+        firestore
+            .collection("Products")
+            .whereEqualTo("category", "Best Deals")
+            .get()
+            .addOnSuccessListener { result ->
+                val bestDealsList = result.toObjects(Product::class.java)
+                viewModelScope.launch {
+                    _bestDeals.emit(Resource.Success(bestDealsList))
+                }
+            }
+            .addOnFailureListener {
+                viewModelScope.launch {
+                    _bestDeals.emit(Resource.Error(it.message.toString()))
+                }
+            }
+
     }
 
     fun fetchBestProducts() {
@@ -88,7 +88,8 @@ class MainCategoryViewModel @Inject constructor(private val firestore: FirebaseF
                 firestore
                     .collection("Products")
                     .limit(pagingInfo.bestProductsPage * 5)
-                    .whereEqualTo("category", "Best Products").orderBy("id",Query.Direction.ASCENDING)
+                    .whereEqualTo("category", "Best Products")
+                    .orderBy("id", Query.Direction.ASCENDING)
                     .get()
                     .addOnSuccessListener { result ->
                         val bestProductsList = result.toObjects(Product::class.java)

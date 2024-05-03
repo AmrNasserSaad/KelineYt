@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:id="@+id/searchHeader"
@@ -17,6 +17,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+
             android:id="@+id/searchBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,15 +25,16 @@
             android:background="@drawable/search_box_background">
 
 
-            <TextView
-                android:layout_width="0dp"
+            <EditText
+                android:id="@+id/ed_search"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_thin"
                 android:paddingStart="20dp"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
                 android:singleLine="true"
-                android:text="@string/search_now"
+                android:hint="@string/search_now"
                 android:textColor="#919394"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -41,6 +43,7 @@
 
 
             <ImageView
+                android:id="@+id/imgSearch"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:layout_marginEnd="20dp"
@@ -83,27 +86,37 @@
 
     <TextView
         android:id="@+id/categories_tv"
+        style="@style/BigTextViewThin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:text="@string/categories"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@id/searchHeader"
-        app:layout_constraintTop_toBottomOf="@id/searchHeader"
-        style="@style/BigTextViewThin"
-        android:layout_marginTop="24dp" />
+        app:layout_constraintTop_toBottomOf="@id/searchHeader" />
 
+    <ProgressBar
+        android:id="@+id/searchProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/g_blue_gray200"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_chair"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
         app:cardBackgroundColor="@color/g_card_background"
         app:cardCornerRadius="2dp"
         app:cardElevation="0dp"
-        android:layout_marginTop="4dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintStart_toStartOf="@id/searchHeader"
-        app:layout_constraintTop_toBottomOf="@+id/categories_tv"
-        app:cardUseCompatPadding="true">
+        app:layout_constraintTop_toBottomOf="@+id/categories_tv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -160,15 +173,15 @@
         android:id="@+id/card_cupboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
         app:cardBackgroundColor="@color/g_card_background"
         app:cardCornerRadius="2dp"
         app:cardElevation="0dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginStart="8dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="@id/guideline2"
         app:layout_constraintStart_toEndOf="@id/card_chair"
-        app:layout_constraintTop_toBottomOf="@+id/categories_tv"
-        app:cardUseCompatPadding="true">
+        app:layout_constraintTop_toBottomOf="@+id/categories_tv">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -225,13 +238,13 @@
         android:id="@+id/card_accessory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:cardBackgroundColor="@color/g_card_background"
         app:cardCornerRadius="2dp"
         app:cardElevation="0dp"
-        android:layout_marginTop="8dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintStart_toStartOf="@id/searchHeader"
-        app:layout_constraintTop_toBottomOf="@+id/card_chair"
-        app:cardUseCompatPadding="true">
+        app:layout_constraintTop_toBottomOf="@+id/card_chair">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -288,14 +301,14 @@
         android:id="@+id/card_furniture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:cardBackgroundColor="@color/g_card_background"
         app:cardCornerRadius="2dp"
         app:cardElevation="0dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="@id/card_cupboard"
-        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@id/card_cupboard"
-        app:layout_constraintTop_toBottomOf="@+id/card_cupboard"
-        app:cardUseCompatPadding="true">
+        app:layout_constraintTop_toBottomOf="@+id/card_cupboard">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -352,13 +365,13 @@
         android:id="@+id/card_table"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:cardBackgroundColor="@color/g_card_background"
         app:cardCornerRadius="2dp"
         app:cardElevation="0dp"
-        android:layout_marginTop="8dp"
+        app:cardUseCompatPadding="true"
         app:layout_constraintStart_toStartOf="@id/searchHeader"
-        app:layout_constraintTop_toBottomOf="@id/card_accessory"
-        app:cardUseCompatPadding="true">
+        app:layout_constraintTop_toBottomOf="@id/card_accessory">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -410,6 +423,15 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvSearchProducts"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@id/guideline2"
+        app:layout_constraintStart_toStartOf="@id/guideline1"
+        app:layout_constraintTop_toBottomOf="@id/searchHeader" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline1"
