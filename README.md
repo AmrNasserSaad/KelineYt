@@ -1,5 +1,5 @@
 
-You can Show the details of this app HERE : https://www.linkedin.com/posts/amr-nasser_android-developers-appdevelopment-activity-7192537059754954752-8ZkH?utm_source=share&utm_medium=member_android
+You can Show the details of this app HERE: https://www.linkedin.com/posts/amr-nasser_android-developers-appdevelopment-activity-7192537059754954752-8ZkH?utm_source=share&utm_medium=member_android
 
 الحمد لله 💙 
 
@@ -34,4 +34,6 @@ localization: Support multiple languages
 
 Thanks, Mohammad Nawas for your efforts on this amazing playlist ❤️
 
-I'll leave this amazing playlist in the comments.
+the playlist : 
+https://youtube.com/playlist?list=PLzZEuVaFb9ExqUwxMoXg0Li0wYW2IeAkz&si=d6ble4G_g80gqZRC
+
